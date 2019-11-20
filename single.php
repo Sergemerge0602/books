@@ -30,7 +30,14 @@
 		
 				<?php echo get_the_date('F d, Y'); ?> | <strong>Author:</strong> <?php the_author(); ?> 
 
-				<?php the_post_thumbnail('thumbnail'); ?>
+				<?php
+                    if( has_post_thumbnail() ) {
+                        the_post_thumbnail();
+                    }
+                    else {
+                        echo '<img src="'.get_bloginfo("template_url").'/assets/images/templatemo_image_01.jpg" />';
+					} 
+				?>
 					
 				<div><?php the_content(); ?></div>
 					
